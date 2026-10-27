@@ -18,8 +18,8 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
   const [hovered, setHovered] = useState(false);
   useCursor(hovered);
 
-  const width = 2.65;
-  const height = 2.15;
+  const width = 2.75;
+  const height = 2.45;
 
   return (
     <group
@@ -52,14 +52,14 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
       </mesh>
 
       {/* Top Accent Geometric Header Bar */}
-      <mesh position={[0, height / 2 - 0.18, 0.062]}>
-        <planeGeometry args={[width - 0.24, 0.22]} />
+      <mesh position={[0, height / 2 - 0.22, 0.062]}>
+        <planeGeometry args={[width - 0.28, 0.24]} />
         <meshBasicMaterial color={milestone.accentColor} />
       </mesh>
 
       <Text
-        position={[-width / 2 + 0.22, height / 2 - 0.18, 0.07]}
-        fontSize={0.095}
+        position={[-width / 2 + 0.24, height / 2 - 0.22, 0.07]}
+        fontSize={0.092}
         color="#FFFFFF"
         anchorX="left"
         anchorY="middle"
@@ -69,9 +69,9 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
 
       {/* Role Title */}
       <Text
-        position={[-width / 2 + 0.22, 0.56, 0.07]}
-        fontSize={0.145}
-        maxWidth={width - 0.44}
+        position={[-width / 2 + 0.24, height / 2 - 0.52, 0.07]}
+        fontSize={0.135}
+        maxWidth={width - 0.48}
         color="#18181B"
         anchorX="left"
         anchorY="middle"
@@ -81,7 +81,7 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
 
       {/* Organization */}
       <Text
-        position={[-width / 2 + 0.22, 0.31, 0.07]}
+        position={[-width / 2 + 0.24, height / 2 - 0.78, 0.07]}
         fontSize={0.105}
         color={milestone.accentColor}
         anchorX="left"
@@ -90,12 +90,12 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
         {milestone.organization}
       </Text>
 
-      {/* Typographic Curated Bullet Highlights */}
+      {/* Typographic Curated Bullet Highlights - cleanly spaced */}
       <Text
-        position={[-width / 2 + 0.22, -0.22, 0.07]}
-        fontSize={0.082}
-        maxWidth={width - 0.44}
-        lineHeight={1.4}
+        position={[-width / 2 + 0.24, 0.02, 0.07]}
+        fontSize={0.078}
+        maxWidth={width - 0.48}
+        lineHeight={1.55}
         color="#3F3F46"
         anchorX="left"
         anchorY="middle"
@@ -105,8 +105,8 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
 
       {/* Footer Inspection Prompt */}
       <Text
-        position={[0, -height / 2 + 0.16, 0.07]}
-        fontSize={0.075}
+        position={[0, -height / 2 + 0.18, 0.07]}
+        fontSize={0.074}
         color={hovered ? milestone.accentColor : '#71717A'}
         anchorX="center"
         anchorY="middle"
@@ -133,9 +133,9 @@ export function ResumeWall({ onOpenModal, onFocusCamera }: ResumeWallProps) {
   );
 
   const slots: [number, number, number][] = [
-    [-8.84, 3.45, 3.3],
-    [-8.84, 3.45, 0],
-    [-8.84, 3.45, -3.3],
+    [-8.84, 3.75, 3.4],
+    [-8.84, 3.75, 0],
+    [-8.84, 3.75, -3.4],
   ];
 
   const handleSelectMilestone = (
@@ -264,11 +264,11 @@ export function ResumeWall({ onOpenModal, onFocusCamera }: ResumeWallProps) {
 
       {/* Lower Architectural Brass & Slate Skill & Certification Plaques */}
       {SKILL_CLUSTERS.map((cluster, idx) => {
-        const slot = skillSlots[idx] || [-8.84, 1.45, 0];
+        const slot = skillSlots[idx] || [-8.84, 1.25, 0];
         return (
           <group
             key={cluster.category}
-            position={slot}
+            position={[slot[0], 1.25, slot[2]]}
             rotation={[0, Math.PI / 2, 0]}
             onPointerOver={(e) => {
               e.stopPropagation();
@@ -277,12 +277,12 @@ export function ResumeWall({ onOpenModal, onFocusCamera }: ResumeWallProps) {
             onPointerOut={() => setPlaqueHovered(false)}
             onClick={(e) => {
               e.stopPropagation();
-              onFocusCamera([-5.2, 2.3, slot[2]], [-8.84, 2.3, slot[2]]);
+              onFocusCamera([-5.2, 2.1, slot[2]], [-8.84, 2.1, slot[2]]);
               onOpenModal({ type: 'resume' });
             }}
           >
             <mesh castShadow>
-              <boxGeometry args={[2.0, 0.95, 0.07]} />
+              <boxGeometry args={[2.0, 1.15, 0.07]} />
               <meshStandardMaterial
                 color={plaqueHovered ? '#292524' : '#1C1917'}
                 metalness={0.5}
@@ -290,8 +290,8 @@ export function ResumeWall({ onOpenModal, onFocusCamera }: ResumeWallProps) {
               />
             </mesh>
             <Text
-              position={[0, 0.26, 0.045]}
-              fontSize={0.095}
+              position={[0, 0.36, 0.045]}
+              fontSize={0.098}
               color="#F59E0B"
               anchorX="center"
               anchorY="middle"
@@ -300,9 +300,9 @@ export function ResumeWall({ onOpenModal, onFocusCamera }: ResumeWallProps) {
             </Text>
             <Text
               position={[0, -0.12, 0.045]}
-              fontSize={0.075}
-              maxWidth={1.85}
-              lineHeight={1.35}
+              fontSize={0.076}
+              maxWidth={1.82}
+              lineHeight={1.5}
               color="#E7E5E4"
               anchorX="center"
               anchorY="middle"
