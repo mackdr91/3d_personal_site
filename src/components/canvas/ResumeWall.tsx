@@ -67,38 +67,39 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
         {`${milestone.period}  ·  ${milestone.location.toUpperCase()}`}
       </Text>
 
-      {/* Role Title */}
+      {/* Role Title (Anchored to top) */}
       <Text
-        position={[-width / 2 + 0.24, height / 2 - 0.52, 0.07]}
+        position={[-width / 2 + 0.24, height / 2 - 0.44, 0.07]}
         fontSize={0.125}
         maxWidth={width - 0.48}
         color="#18181B"
         anchorX="left"
-        anchorY="middle"
+        anchorY="top"
       >
         {milestone.role}
       </Text>
 
-      {/* Organization */}
+      {/* Organization (Anchored to top, safely below role title) */}
       <Text
-        position={[-width / 2 + 0.24, height / 2 - 0.94, 0.07]}
-        fontSize={0.105}
+        position={[-width / 2 + 0.24, height / 2 - 0.88, 0.07]}
+        fontSize={0.108}
+        maxWidth={width - 0.48}
         color={milestone.accentColor}
         anchorX="left"
-        anchorY="middle"
+        anchorY="top"
       >
         {milestone.organization}
       </Text>
 
-      {/* Typographic Curated Bullet Highlights - cleanly spaced below organization */}
+      {/* Typographic Curated Bullet Highlights (Anchored to top, cleanly under organization) */}
       <Text
-        position={[-width / 2 + 0.24, -0.16, 0.07]}
+        position={[-width / 2 + 0.24, height / 2 - 1.16, 0.07]}
         fontSize={0.076}
         maxWidth={width - 0.48}
-        lineHeight={1.5}
+        lineHeight={1.48}
         color="#3F3F46"
         anchorX="left"
-        anchorY="middle"
+        anchorY="top"
       >
         {milestone.highlights.map((h) => `• ${h}`).join('\n\n')}
       </Text>
