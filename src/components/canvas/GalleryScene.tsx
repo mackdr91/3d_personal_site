@@ -42,7 +42,13 @@ export function GalleryScene({
   return (
     <Canvas
       shadows
-      dpr={[1, 2]}
+      dpr={[1, 1.75]}
+      gl={{
+        powerPreference: 'high-performance',
+        antialias: true,
+        stencil: false,
+        depth: true,
+      }}
       camera={{ position: [0, 5.4, 9.2], fov: 46, near: 0.1, far: 60 }}
       style={{ width: '100%', height: '100%' }}
     >

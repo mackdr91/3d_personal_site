@@ -94,7 +94,7 @@ export function App() {
   }, []);
 
   return (
-    <div className="atelier-viewport">
+    <main className="atelier-viewport">
       <GalleryScene
         activeZone={activeZone}
         customCameraTarget={customCameraTarget}
@@ -126,7 +126,7 @@ export function App() {
         payload={modalPayload}
         onClose={handleCloseModal}
       />
-    </div>
+    </main>
   );
 }
 
