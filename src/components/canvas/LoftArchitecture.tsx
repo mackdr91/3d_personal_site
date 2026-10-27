@@ -250,7 +250,7 @@ export function LoftArchitecture({ goldenHour, onSelectZone }: LoftArchitectureP
       </Text>
 
       <Text
-        position={[-8.86, 5.55, 0]}
+        position={[-8.86, 5.75, 0]}
         rotation={[0, Math.PI / 2, 0]}
         fontSize={0.34}
         letterSpacing={0.14}

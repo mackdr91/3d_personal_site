@@ -70,7 +70,7 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
       {/* Role Title */}
       <Text
         position={[-width / 2 + 0.24, height / 2 - 0.52, 0.07]}
-        fontSize={0.135}
+        fontSize={0.125}
         maxWidth={width - 0.48}
         color="#18181B"
         anchorX="left"
@@ -81,7 +81,7 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
 
       {/* Organization */}
       <Text
-        position={[-width / 2 + 0.24, height / 2 - 0.78, 0.07]}
+        position={[-width / 2 + 0.24, height / 2 - 0.94, 0.07]}
         fontSize={0.105}
         color={milestone.accentColor}
         anchorX="left"
@@ -90,12 +90,12 @@ function MilestoneArtPrint({ milestone, position, onSelect }: MilestoneFrameProp
         {milestone.organization}
       </Text>
 
-      {/* Typographic Curated Bullet Highlights - cleanly spaced */}
+      {/* Typographic Curated Bullet Highlights - cleanly spaced below organization */}
       <Text
-        position={[-width / 2 + 0.24, 0.02, 0.07]}
-        fontSize={0.078}
+        position={[-width / 2 + 0.24, -0.16, 0.07]}
+        fontSize={0.076}
         maxWidth={width - 0.48}
-        lineHeight={1.55}
+        lineHeight={1.5}
         color="#3F3F46"
         anchorX="left"
         anchorY="middle"
@@ -133,9 +133,9 @@ export function ResumeWall({ onOpenModal, onFocusCamera }: ResumeWallProps) {
   );
 
   const slots: [number, number, number][] = [
-    [-8.84, 3.75, 3.4],
-    [-8.84, 3.75, 0],
-    [-8.84, 3.75, -3.4],
+    [-8.84, 3.4, 3.4],
+    [-8.84, 3.4, 0],
+    [-8.84, 3.4, -3.4],
   ];
 
   const handleSelectMilestone = (
@@ -159,9 +159,9 @@ export function ResumeWall({ onOpenModal, onFocusCamera }: ResumeWallProps) {
     <group>
       {/* Top Curatorial Subtitle */}
       <Text
-        position={[-8.85, 5.05, 0]}
+        position={[-8.85, 5.3, 0]}
         rotation={[0, Math.PI / 2, 0]}
-        fontSize={0.13}
+        fontSize={0.115}
         color="#64748B"
         anchorX="center"
         anchorY="middle"
@@ -169,9 +169,9 @@ export function ResumeWall({ onOpenModal, onFocusCamera }: ResumeWallProps) {
         RETROSPECTIVE EXHIBITION · 10+ YEARS IT LEADERSHIP, SYSTEMS & CYBERSECURITY
       </Text>
 
-      {/* 3D Resume Timeline Batch Switcher */}
+      {/* 3D Resume Timeline Batch Switcher - positioned comfortably between subtitle and prints */}
       {totalBatches > 1 && (
-        <group position={[-8.84, 4.82, 0]} rotation={[0, Math.PI / 2, 0]}>
+        <group position={[-8.84, 4.95, 0]} rotation={[0, Math.PI / 2, 0]}>
           <group
             position={[-1.75, 0, 0]}
             onPointerOver={(e) => {
